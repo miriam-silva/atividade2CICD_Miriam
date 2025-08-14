@@ -1,0 +1,27 @@
+{
+  "name": "atividade2cicd_miriam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+  "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miriam-silva/atividade2CICD_Miriam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/miriam-silva/atividade2CICD_Miriam/issues"
+  },
+  "homepage": "https://github.com/miriam-silva/atividade2CICD_Miriam#readme",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
