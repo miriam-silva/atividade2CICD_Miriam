@@ -1,11 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade pipeline CICD - Miriam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff8f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .liked {
+            border: 4px solid red;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 18px;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Teste 1</h1>
+
+    <h1>🐱 Galeria de Gatinhos</h1>
+    <button onclick="shuffleImages()">🔀 Embaralhar Gatinhos</button>
+    <div class="gallery" id="gallery">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.MTj_LjFoJqDu_HG37FkYQwHaFj?r=0&w=1920&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gatinho tirando uma soneca">
+        <img src="https://i.pinimg.com/736x/58/39/45/583945f8a86abae989fb9a8a4460ca0a.jpg" alt="Gatinho vestido de papai noel">
+        <img src="https://th.bing.com/th/id/R.66b64735948c2a7abb321a2ceeef1260?rik=r3IisDifRyHLRA&pid=ImgRaw&r=0" alt="Gatinho vesgo tirando uma selfie">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.N0NLbTm4MZaJNQGHDbdpOgHaFj?r=0&pid=ImgDet&w=184&h=138&c=7&dpr=1,3&o=7&rm=3" alt="Gatinho relaxando no sofá">
+    </div>
+
+    <div class="modal" id="modal" onclick="closeModal()">
+        <img id="modalImg" src="">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".gallery img");
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        const caption = document.getElementById("caption");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                img.classList.toggle("liked");
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                caption.textContent = img.alt; // legenda igual ao alt
+            });
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function shuffleImages() {
+            const gallery = document.getElementById("gallery");
+            const imgs = Array.from(gallery.children);
+            imgs.sort(() => Math.random() - 0.5);
+            imgs.forEach(img => gallery.appendChild(img));
+        }
+    </script>
+
 </body>
 </html>
