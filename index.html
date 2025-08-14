@@ -34,7 +34,6 @@
         .liked {
             border: 4px solid red;
         }
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -60,7 +59,7 @@
 </head>
 <body>
 
-    <h1>🐱 Galeria de Gatinhos</h1>
+    <h1>Galeria de Gatinhos 🐱</h1>
     <button onclick="shuffleImages()">🔀 Embaralhar Gatinhos</button>
     <div class="gallery" id="gallery">
         <img src="https://tse3.mm.bing.net/th/id/OIP.MTj_LjFoJqDu_HG37FkYQwHaFj?r=0&w=1920&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gatinho tirando uma soneca">
@@ -85,7 +84,7 @@
                 img.classList.toggle("liked");
                 modal.style.display = "flex";
                 modalImg.src = img.src;
-                caption.textContent = img.alt; // legenda igual ao alt
+                caption.textContent = img.alt; 
             });
         });
 
